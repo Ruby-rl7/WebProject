@@ -1,0 +1,222 @@
+/* ==========================================================
+   Ruby Shima — Portfolio stylesheet
+   Shared across index.html and contact.html
+   ========================================================== */
+
+:root{
+  --bg: #FAFAF8;
+  --surface: #FFFFFF;
+  --text: #16151C;
+  --muted: #6B6975;
+  --line: #E7E5E0;
+  --violet: #6B46E5;
+  --violet-soft: #F1EDFC;
+  --orange: #F2542D;
+}
+
+:root[data-theme="dark"]{
+  --bg: #0B0A10;
+  --surface: #16141F;
+  --text: #F5F1EC;
+  --muted: #9C93AE;
+  --line: rgba(245,241,236,0.14);
+  --violet: #8A6BFF;
+  --violet-soft: rgba(138,107,255,0.16);
+  --orange: #F2542D;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter', sans-serif;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s ease, color .3s ease;
+}
+a{ color:inherit; }
+::selection{ background:var(--violet); color:#fff; }
+
+/* -------------------- nav (shared) -------------------- */
+nav, .card, .design-wrap, .contact-card, .footer-cta, footer.site-footer{
+  transition:background .3s ease, border-color .3s ease, color .3s ease;
+}
+
+nav{
+  position:sticky; top:0; z-index:50;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:22px 6vw;
+  background:color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-mark{ font-weight:700; font-size:16px; letter-spacing:-0.01em; text-decoration:none; }
+.nav-links{ display:flex; gap:8px; align-items:center; }
+.nav-links a{
+  text-decoration:none; font-size:14px; font-weight:500; color:var(--muted);
+  padding:8px 16px; border-radius:100px; transition:background .2s, color .2s;
+}
+.nav-links a:hover{ background:var(--violet-soft); color:var(--violet); }
+.nav-links a.cta{ background:var(--text); color:var(--bg); }
+.nav-links a.cta:hover{ background:var(--violet); color:#fff; }
+
+/* -------------------- theme toggle (shared) -------------------- */
+.theme-toggle{
+  width:40px; height:40px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--line); background:var(--surface);
+  border-radius:50%; cursor:pointer;
+  margin-left:6px; color:var(--muted);
+  transition:border-color .2s, background .2s, color .2s;
+}
+.theme-toggle:hover{ border-color:var(--violet); color:var(--violet); }
+.theme-toggle svg{ width:19px; height:19px; fill:currentColor; }
+.theme-toggle .icon-sun{ display:none; }
+.theme-toggle .icon-moon{ display:block; }
+:root[data-theme="dark"] .theme-toggle .icon-sun{ display:block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon{ display:none; }
+
+/* -------------------- language toggle (shared) -------------------- */
+.lang-toggle{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:38px; padding:0 14px;
+  border:1px solid var(--line); background:var(--surface);
+  border-radius:100px; margin-left:6px;
+  font-size:13px; font-weight:600; text-decoration:none; color:var(--muted);
+  transition:border-color .2s, color .2s;
+}
+.lang-toggle:hover{ border-color:var(--violet); color:var(--violet); }
+
+/* -------------------- footer (shared) -------------------- */
+footer.site-footer{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:28px 6vw; border-top:1px solid var(--line);
+  font-size:13px; color:var(--muted);
+}
+footer.site-footer a{ text-decoration:none; color:var(--muted); }
+footer.site-footer a:hover{ color:var(--violet); }
+
+/* -------------------- buttons (shared) -------------------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:14px; font-weight:600; text-decoration:none;
+  padding:13px 24px; border-radius:100px;
+  transition:transform .2s, background .2s, border-color .2s;
+}
+.btn-primary{ background:var(--text); color:var(--bg); }
+.btn-primary:hover{ background:var(--violet); color:#fff; transform:translateY(-1px); }
+.btn-secondary{ background:transparent; color:var(--text); border:1px solid var(--line); }
+.btn-secondary:hover{ border-color:var(--violet); color:var(--violet); }
+
+/* -------------------- kicker / eyebrow (shared) -------------------- */
+.kicker{ font-size:13px; font-weight:600; color:var(--violet); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:600; color:var(--violet);
+  background:var(--violet-soft);
+  padding:6px 14px; border-radius:100px;
+  margin-bottom:28px;
+}
+
+/* ============================================================
+   index.html — homepage
+   ============================================================ */
+
+.hero{ padding:110px 6vw 90px; max-width:900px; }
+.hero h1{
+  font-size:clamp(38px, 6vw, 64px);
+  font-weight:800; letter-spacing:-0.03em; line-height:1.08;
+  margin-bottom:24px;
+}
+.hero h1 .accent{ color:var(--violet); }
+.hero p.lead{
+  font-size:18px; color:var(--muted); line-height:1.7;
+  max-width:600px; margin-bottom:36px;
+}
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+section{ padding:70px 6vw; }
+.section-head{ margin-bottom:44px; }
+.section-head h2{ font-size:clamp(28px,3.6vw,40px); font-weight:700; letter-spacing:-0.02em; }
+
+.work-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; }
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:16px;
+  padding:28px; transition:border-color .2s, transform .2s;
+}
+.card:hover{ border-color:var(--violet); transform:translateY(-3px); }
+.card .tag{
+  display:inline-block; font-size:12px; font-weight:600;
+  padding:5px 12px; border-radius:100px; margin-bottom:16px;
+}
+.tag.active{ background:var(--violet-soft); color:var(--violet); }
+.tag.soon{ background:#F0EFEC; color:var(--muted); }
+.card h3{ font-size:20px; font-weight:700; margin-bottom:10px; letter-spacing:-0.01em; }
+.card p{ color:var(--muted); font-size:14.5px; line-height:1.65; }
+
+.design-wrap{
+  display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
+  background:var(--surface); border:1px solid var(--line); border-radius:24px;
+  padding:44px; overflow:hidden;
+}
+.design-frame img{ width:100%; display:block; border-radius:14px; }
+.design-copy h3{ font-size:clamp(24px,3vw,32px); font-weight:700; letter-spacing:-0.02em; margin-bottom:18px; }
+.design-copy p{ color:var(--muted); font-size:15px; line-height:1.75; margin-bottom:14px; }
+.chips{ display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+.chip{ font-size:12.5px; font-weight:600; background:var(--bg); border:1px solid var(--line); padding:6px 14px; border-radius:100px; color:var(--text); }
+
+.about{ display:grid; grid-template-columns:1fr 1.4fr; gap:56px; }
+.about-lead{ font-size:clamp(22px,2.6vw,28px); font-weight:700; letter-spacing:-0.02em; line-height:1.35; }
+.about-side p{ color:var(--muted); font-size:15px; line-height:1.8; margin-bottom:16px; }
+
+.footer-cta{
+  background:#16151C; color:#fff; border-radius:28px;
+  margin:0 6vw 80px; padding:70px 6vw; text-align:center;
+}
+.footer-cta h2{ font-size:clamp(30px,4.5vw,48px); font-weight:800; letter-spacing:-0.02em; margin-bottom:18px; }
+.footer-cta p{ color:rgba(255,255,255,0.65); font-size:16px; margin-bottom:32px; }
+.footer-cta .btn-primary{ background:#fff; color:#16151C; }
+.footer-cta .btn-primary:hover{ background:var(--violet); color:#fff; }
+
+/* ============================================================
+   contact.html
+   ============================================================ */
+
+body.contact-page{ min-height:100vh; display:flex; flex-direction:column; }
+main{ flex:1; display:flex; align-items:center; padding:80px 6vw; }
+.contact-wrap{ max-width:640px; margin:0 auto; width:100%; }
+.contact-wrap h1{ font-size:clamp(36px,5.5vw,54px); font-weight:800; letter-spacing:-0.03em; line-height:1.1; margin-bottom:20px; }
+.contact-wrap .lead{ font-size:17px; color:var(--muted); line-height:1.7; margin-bottom:48px; max-width:520px; }
+
+.contact-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:20px;
+  padding:8px;
+}
+.contact-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 24px; text-decoration:none; color:var(--text);
+  border-radius:14px; transition:background .2s;
+}
+.contact-row:hover{ background:var(--violet-soft); }
+.contact-row:hover .row-value{ color:var(--violet); }
+.contact-row + .contact-row{ border-top:1px solid var(--line); }
+.row-label{ font-size:13px; color:var(--muted); font-weight:500; }
+.row-value{ font-size:17px; font-weight:600; margin-top:4px; transition:color .2s; }
+.row-arrow{ font-size:18px; color:var(--muted); }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width:760px){
+  .design-wrap, .about{ grid-template-columns:1fr; }
+  nav{ padding:18px 5vw; }
+  .nav-links{ gap:2px; }
+  .nav-links a{ padding:8px 10px; font-size:13px; }
+  section{ padding:56px 5vw; }
+}
+
+@media (max-width:600px){
+  main{ padding:60px 5vw; }
+  .contact-row{ padding:18px; }
+}
