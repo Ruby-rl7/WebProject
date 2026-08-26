@@ -121,6 +121,38 @@ On the design side, I create bold graphic designs and visual identities that com
   <span>© 2026 Ruby Shima</span>
   <a href="contact.html">Contact</a>
 </footer>
+<script>
+(function () {
+  function goToSection(id) {
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
+  // Coming from contact.html with a hash (index.html#work) —
+  // scroll to it, then wipe the hash so the URL is clean again.
+  window.addEventListener('DOMContentLoaded', function () {
+    if (window.location.hash) {
+      var id = window.location.hash.slice(1);
+      setTimeout(function () {
+        goToSection(id);
+        history.replaceState(null, '', window.location.pathname);
+      }, 50);
+    }
+  });
+
+  // Clicking Work / Design / About while already on index.html —
+  // scroll manually and never let the #hash hit the address bar.
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = link.getAttribute('href').slice(1);
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        goToSection(id);
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
