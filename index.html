@@ -34,7 +34,7 @@
     <a href="#work">Work</a>
     <a href="#design">Design</a>
     <a href="#about">About</a>
-    <a href="contact.html" class="cta">Contact</a>
+    <a href="contact/" class="cta">Contact</a>
    
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
       <svg class="icon-moon" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/></svg>
@@ -50,7 +50,7 @@
 </p>
   <div class="hero-actions">
     <a href="#work" class="btn btn-primary">View my work</a>
-    <a href="contact.html" class="btn btn-secondary">Get in touch</a>
+    <a href="contact/" class="btn btn-secondary">Get in touch</a>
   </div>
 </section>
 
@@ -114,13 +114,14 @@ On the design side, I create bold graphic designs and visual identities that com
 <div class="footer-cta">
   <h2>Let's work together</h2>
   <p>Open to freelance design projects and always happy to talk dev.</p>
-  <a href="contact.html" class="btn btn-primary">Get in touch</a>
+  <a href="contact/" class="btn btn-primary">Get in touch</a>
 </div>
 
 <footer class="site-footer">
   <span>© 2026 Ruby Shima</span>
-  <a href="contact.html">Contact</a>
+  <a href="contact/">Contact</a>
 </footer>
+
 <script>
 (function () {
   function goToSection(id) {
@@ -128,8 +129,6 @@ On the design side, I create bold graphic designs and visual identities that com
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // Coming from contact.html with a hash (index.html#work) —
-  // scroll to it, then wipe the hash so the URL is clean again.
   window.addEventListener('DOMContentLoaded', function () {
     if (window.location.hash) {
       var id = window.location.hash.slice(1);
@@ -140,8 +139,6 @@ On the design side, I create bold graphic designs and visual identities that com
     }
   });
 
-  // Clicking Work / Design / About while already on index.html —
-  // scroll manually and never let the #hash hit the address bar.
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       var id = link.getAttribute('href').slice(1);
@@ -154,5 +151,6 @@ On the design side, I create bold graphic designs and visual identities that com
   });
 })();
 </script>
+
 </body>
 </html>
