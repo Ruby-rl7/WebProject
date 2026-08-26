@@ -154,6 +154,8 @@ section{ padding:70px 6vw; }
 .card h3{ font-size:20px; font-weight:700; margin-bottom:10px; letter-spacing:-0.01em; }
 .card p{ color:var(--muted); font-size:14.5px; line-height:1.65; }
 
+.design-list{ display:flex; flex-direction:column; gap:28px; }
+
 .design-wrap{
   display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
   background:var(--surface); border:1px solid var(--line); border-radius:24px;
